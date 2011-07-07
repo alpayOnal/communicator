@@ -109,9 +109,9 @@ Contact-Length: 200
 }
 
 $defaults = array(
-"domain" => AF_INET,
-"type" => SOCK_DGRAM,
-"protocol" => 17
+"domain" => 'AF_INET',
+"type" => 'SOCK_DGRAM',
+"protocol" => '17'
 );
                        
 $deneme=new Socket($defaults);
