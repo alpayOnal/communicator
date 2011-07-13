@@ -8,7 +8,7 @@ try
   $api = new PhpSIP('78.46.64.50');
   $api->setDebug(true);
   $api->setUsername('alpay'); // authentication username
-  $api->setPassword('2552411984'); // authentication password
+  $api->setPassword('test'); // authentication password
   //$api->setProxy('some_ip_here'); 
   $api->addHeader('Event: resync');
   $api->setMethod('NOTIFY');

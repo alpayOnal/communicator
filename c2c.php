@@ -28,8 +28,8 @@
       $api->setDebug(true);
 
       // if your SIP service doesn't accept anonymous inbound calls uncomment two lines below
-      $api->setUsername('alpay');
-      $api->setPassword('2552411984');
+      $api->setUsername('test');
+      $api->setPassword('test');
 
       $api->addHeader('Subject: click2call');
       $api->setMethod('INVITE');
