@@ -40,17 +40,17 @@ class PhpSIP
   /**
    * Min port
    */
-  private $min_port = 5065;
+  private $min_port = 5060;
   
   /**
    * Max port
    */
-  private $max_port = 5265;
+  private $max_port = 5061;
   
   /**
    * Final Response timer (in seconds)
    */
-  private $fr_timer = 7;
+  private $fr_timer = 1;
   
   /**
    * Lock file
@@ -1094,7 +1094,7 @@ class PhpSIP
     $r.= 'Content-Length: '.strlen($this->body)."\r\n";
     $r.= "\r\n";
     $r.= $this->body;
-    
+    echo '<br><br>'.$r.'<br><br>';
     return $r;
   }
   

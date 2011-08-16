@@ -5,18 +5,18 @@ require_once('PhpSIP.class.php');
 
 try
 {
-  $api = new PhpSIP('78.46.64.50');
+  $api = new PhpSIP('opensips.org');
   $api->setDebug(true);
-  $api->setUsername('alpay'); // authentication username
-  $api->setPassword('test'); // authentication password
-  //$api->setProxy('some_ip_here'); 
+  $api->setUsername('alpay@opensips.org'); // authentication username
+  $api->setPassword('2552411984'); // authentication password
+  //$api->setProxy('78.46.64.50'); 
   $api->addHeader('Event: resync');
-  $api->setMethod('NOTIFY');
-  $api->setFrom('sip:alpay@opensips.org');
-  $api->setUri('sip:test@opensips.org');
+  $api->setMethod('MESSAGE');
+  $api->setFrom('sip:test@opensips.org');
+  $api->setUri('sip:alpay@opensips.org');
   $res = $api->send();
 
-  echo "response: $res\n";
+  echo "response: $res<br>";
   
 } catch (Exception $e) {
   

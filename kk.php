@@ -15,39 +15,36 @@
 
   Trying call from <?php echo $from ?> to <?php echo $to ?> ...<br />
 
-  <?php flush(); ?>
+  <?php flush() ?>
 
   <pre>
   <?php 
+
     try{
+
       $api = new PhpSIP($src_ip);
       $api->setDebug(true);
       $api->setUsername('test@opensips.org');
       $api->setPassword('test');
-      $api->addHeader('Subject: test');
-     	$api->setMethod('MESSAGE');
-	  $api->setBody('Hi, alpay?');
-	//$api->setMethod('INVITE');
-      $api->setFrom('sip:alpay@'.$src_ip);
+      $api->setMethod('MESSAGE');
+      $api->addHeader('Subject: click2call');
+      $api->setBody('Hi, alpay?');
+      $api->setFrom('sip:test@'.$src_ip);
       $api->setUri($from);
 
       $res = $api->send();
 
       if ($res == 200)
-      {	 
-		  
-		$api->setMethod('SUBSCRIBE');
-        $res = $api->send();
-        echo $res;
+      { 
         $api->setMethod('REFER');
         $api->addHeader('Refer-to: '.$to);
         $api->addHeader('Referred-By: sip:test@'.$src_ip);
         $api->send();
-		
+
         $api->setMethod('BYE');
         $api->send();
-		
-        $api->listen('INFO');
+
+        $api->listen('NOTIFY');
         $api->reply(481,'Call Leg/Transaction Does Not Exist');
       }
 
@@ -64,6 +61,7 @@
       echo "Opps... Caught exception:";
       echo $e;
     }
+
   ?>
   </pre>
   <hr />
